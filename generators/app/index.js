@@ -80,6 +80,22 @@ module.exports = yeoman.Base.extend({
         return props.passwordReset;
       }
     }, {
+      type: 'input',
+      name: 'domainName',
+      message: 'What\'s your domain name (needed for mailgun)?',
+      default: 'my.domain.com',
+      when: function (props) {
+        return props.passwordReset;
+      },
+     } , {
+      type: 'input',
+      name: 'defaultEmail',
+      message: 'What\'s your default email (from: password reset)?',
+      default: 'noreply@my.domain.com',
+      when: function (props) {
+        return props.passwordReset;
+      },
+    }, {
       type: 'confirm',
       name: 'getList',
       message: 'Do you want the retrieve methods from users (GET) to have the form { rows, count } ?',
@@ -108,6 +124,7 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
+    console.log('writing...');
     var props = this.props;
     var copy = this.fs.copy.bind(this.fs);
     var copyTpl = this.fs.copyTpl.bind(this.fs);
