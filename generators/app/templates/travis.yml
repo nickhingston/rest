@@ -15,8 +15,14 @@ script:
 env:
   global:
   - CXX=g++-4.8
-  <%_ if (typeof sendgridKey !== 'undefined' && sendgridKey) { _%>
-  - SENDGRID_KEY=sendgridKey
+  <%_ if (typeof mailgunKey !== 'undefined' && mailgunKey) { _%>
+  - MAILGUN_KEY=mailgunKey
+  <%_ } _%>
+  <%_ if (typeof domainName !== 'undefined' && domainName) { _%>
+  - DOMAIN_NAME=domainName
+  <%_ } _%>
+  <%_ if (typeof defaultEmail !== 'undefined' && defaultEmail) { _%>
+  - DEFAULT_EMAIL=defaultEmail
   <%_ } _%>
   - MASTER_KEY=masterKey
   <%_ if (typeof jwtSecret !== 'undefined' && jwtSecret) { _%>

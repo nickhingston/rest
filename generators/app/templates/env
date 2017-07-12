@@ -1,7 +1,9 @@
-<%_ if (typeof sendgridKey !== 'undefined' && sendgridKey) { _%>
-SENDGRID_KEY=<%= sendgridKey %>
+<%_ if (typeof mailgunKey !== 'undefined' && mailgunKey) { _%>
+MAILGUN_KEY=<%= mailgunKey %>
 <%_ } _%>
 MASTER_KEY=<%= masterKey %>
+DOMAIN_NAME=<%= domainName %>
+DEFAULT_EMAIL=<%= defaultEmail %>
 <%_ if (typeof jwtSecret !== 'undefined' && jwtSecret) { _%>
 JWT_SECRET=<%= jwtSecret %>
 <%_ } _%>

@@ -1,7 +1,7 @@
 import request from 'supertest-as-promised'
 import nock from 'nock'
 import express from '../../services/express'
-import { masterKey, apiRoot } from '../../config'
+import { masterKey, apiRoot, domainName} from '../../config'
 import { User } from '../user'
 import routes, { PasswordReset } from '.'
 
@@ -10,7 +10,14 @@ const app = () => express(apiRoot, routes)
 let user, passwordReset
 
 beforeEach(async () => {
-  nock('https://api.sendgrid.com').post('/v3/mail/send').reply(202)
+  nock('https://api.mailgun.net')
+  .filteringRequestBody(() => '*')
+  .post('/v3/' + domainName + '/messages', '*')
+  .reply(200, {
+    'id': '<20170711110712.18440.DBA6FB69F25AD5BE@' + domainName + '.mailgun.org>',
+    'message': 'Queued. Thank you.'
+  })
+
   user = await User.create({ email: 'a@a.com', password: '123456' })
   passwordReset = await PasswordReset.create({ user })
 })

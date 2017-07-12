@@ -8,6 +8,7 @@ var helpers = require('yeoman-test');
 var authServices = ['facebook', 'github', 'google'];
 
 function install(answers, done, generateApis) {
+  console.log("installing")
   return helpers.run(path.join(__dirname, '../generators/app'))
     .withPrompts(answers)
     .toPromise()

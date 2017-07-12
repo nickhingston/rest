@@ -26,10 +26,11 @@ const config = {
     ip: process.env.IP || '0.0.0.0',
     apiRoot: process.env.API_ROOT || '/api',
     <%_ if (typeof passwordReset !== 'undefined' && passwordReset) { _%>
-    defaultEmail: 'no-reply@<%= slug %>.com',
+    defaultEmail: requireProcessEnv('DEFAULT_EMAIL'),
     <%_ } _%>
-    <%_ if (typeof sendgridKey !== 'undefined' && sendgridKey) { _%>
-    sendgridKey: requireProcessEnv('SENDGRID_KEY'),
+    <%_ if (typeof mailgunKey !== 'undefined' && mailgunKey) { _%>
+    mailgunKey: requireProcessEnv('MAILGUN_KEY'),
+    domainName: requireProcessEnv('DOMAIN_NAME'),
     <%_ } _%>
     masterKey: requireProcessEnv('MASTER_KEY'),
     <%_ if (typeof generateAuthApi !== 'undefined' && generateAuthApi) { _%>

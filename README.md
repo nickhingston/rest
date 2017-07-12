@@ -10,7 +10,7 @@
  - **ES6!** - Using [babel](https://babeljs.io/)
  - **User registration API** - Using [passport](http://passportjs.org/) (optional)
  - **Social login API** - Facebook, Google and GitHub (optional)
- - **Password reset API** - Sending emails with [SendGrid API](https://sendgrid.com/docs/API_Reference/index.html) (optional)
+ - **Password reset API** - Sending emails with [Mailgun API](https://documentation.mailgun.com/en/latest/) (optional)
  - **Listing query strings** - `q`, `page`, `limit`, `fields` etc. already provided by [querymen](https://github.com/diegohaz/querymen)
  - **Query string validator** - Using [querymen](https://github.com/diegohaz/querymen)
  - **Request body validator** - Using [bodymen](https://github.com/diegohaz/bodymen)
@@ -187,7 +187,7 @@ src/
 │  ├─ facebook/
 │  ├─ mongoose/
 │  ├─ passport/
-│  ├─ sendgrid/
+│  ├─ mailgun/
 │  └─ your-service/
 ├─ app.js
 ├─ config.js

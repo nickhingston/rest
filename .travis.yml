@@ -16,6 +16,8 @@ addons:
 env:
   global:
   - CXX=g++-4.8
-  - SENDGRID_KEY=sendgridKey
+  - MAILGUN_KEY=mailgunKey
   - MASTER_KEY=masterKey
+  - DOMAIN_NAME=domainName
+  - DEFAULT_EMAIL="default@email.com"
   - JWT_SECRET=jwtSecret

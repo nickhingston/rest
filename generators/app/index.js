@@ -66,15 +66,15 @@ module.exports = yeoman.Base.extend({
     }, {
       type: 'confirm',
       name: 'passwordReset',
-      message: 'Do you want to generate password reset API (it will need a SendGrid API Key)?',
+      message: 'Do you want to generate password reset API (it will need a Mailgun API Key)?',
       default: false,
       when: function (props) {
         return props.generateAuthApi && props.authMethods.indexOf('password') !== -1;
       }
     }, {
       type: 'input',
-      name: 'sendgridKey',
-      message: 'What\'s your SendGrid API Key (you can skip this and update the .env file later)?',
+      name: 'mailgunKey',
+      message: 'What\'s your Mailgun API Key (you can skip this and update the .env file later)?',
       default: 'key',
       when: function (props) {
         return props.passwordReset;
@@ -142,7 +142,7 @@ module.exports = yeoman.Base.extend({
       });
     }
 
-    if (props.passwordReset && props.sendgridKey) {
+    if (props.passwordReset && props.mailgunKey) {
       copyTpl(
         tPath('api/password-reset'),
         dPath(props.srcDir + '/' + props.apiDir + '/password-reset'),
@@ -150,8 +150,8 @@ module.exports = yeoman.Base.extend({
       );
     }
 
-    if (props.sendgridKey) {
-      copyTpl(tPath('services/sendgrid'), dPath(props.srcDir + '/services/sendgrid'), props);
+    if (props.mailgunKey) {
+      copyTpl(tPath('services/mailgun'), dPath(props.srcDir + '/services/mailgun'), props);
     }
   },
 

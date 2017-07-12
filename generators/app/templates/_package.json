@@ -78,8 +78,8 @@
     "rand-token": "^0.3.0",
     <%_ } _%>
     "request": "^2.74.0",
-    "request-promise": "^4.1.1"<%_ if (typeof sendgridKey !== 'undefined' && sendgridKey) { _%>,
-    "sendgrid": "^4.0.2"
+    "request-promise": "^4.1.1"<%_ if (typeof mailgunKey !== 'undefined' && mailgunKey) { _%>,
+    "mailgun-js": "^0.11.2"
     <%_ } _%>
   }
 }

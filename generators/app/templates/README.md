@@ -153,7 +153,7 @@ src/
 │  ├─ facebook/
 │  ├─ mongoose/
 │  ├─ passport/
-│  ├─ sendgrid/
+│  ├─ mailgun/
 │  └─ your-service/
 ├─ app.js
 ├─ config.js
